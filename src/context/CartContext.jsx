@@ -4,6 +4,7 @@ import { cartReducer, initialState } from "../features/cart/cartReducer.js";
 //a global state container that lets components access and update data without prop drilling
 const CartContext = createContext();
 
+export function CartProvider({ children }) {
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
   return (
