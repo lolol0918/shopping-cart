@@ -17,7 +17,13 @@ export default function ProductCard({ product }) {
       </div>
       <button
         type="button"
-        onClick={() => dispatch({ type: 'ADD_ITEM', payload: product })}
+        onClick={() => {
+          dispatch({
+            type: 'ADD_ITEM',
+            payload: { ...product, quantity: qty },
+          });
+          setQty(1);
+        }}
       >
         Add to Cart
       </button>
