@@ -6,7 +6,7 @@ export default function Shop() {
     <>
       <h1>Shop</h1>
       {products.map((product) => (
-        <ProductCard product={product}></ProductCard>
+        <ProductCard product={product} key={product.id}></ProductCard>
       ))}
     </>
   );

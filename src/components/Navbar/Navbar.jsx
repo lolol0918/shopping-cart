@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext.jsx';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
+  const { state } = useContext(CartContext);
   return (
     <nav className={styles.nav}>
       <h1 className={styles.title}>Shop</h1>
@@ -16,7 +19,9 @@ export default function Navbar() {
           <Link to="cart">Cart</Link>
         </li>
       </ul>
-      <button type="button">🛒 Cart (0)</button>
+      <button type="button">
+        🛒 Cart ({state.cart.reduce((total, item) => total + item.quantity, 0)})
+      </button>
     </nav>
   );
 }

@@ -1,38 +1,53 @@
-// cart start as  empty
-export const initialState = [];
+export const initialState = { cart: [] };
 
-//passing the contents of the cart and what action it will do e.g add items, remove items, or clear items.
 export function cartReducer(state, action) {
   switch (action.type) {
-    case "ADD_ITEM": {
-      // check if the item is in the shopping cart
-      const existing = state.find((item) => item.id === action.payload.id);
+    case 'ADD_ITEM': {
+      const existing = state.cart.find((item) => item.id === action.payload.id);
+
       if (existing) {
-        //increment quantity
-        return state.map((item) =>
-          item.id === action.payload.id
-            ? { ...item, quantity: item.quantity + action.payload.quantity }
-            : item,
-        );
-      } else {
-        return [...state, { ...action.payload }];
+        return {
+          ...state,
+          cart: state.cart.map((item) =>
+            item.id === action.payload.id
+              ? {
+                  ...item,
+                  quantity: (item.quantity || 1) + 1,
+                }
+              : item,
+          ),
+        };
       }
+
+      return {
+        ...state,
+        cart: [...state.cart, { ...action.payload, quantity: 1 }],
+      };
     }
 
-    case "REMOVE_ITEM": {
-      return state.filter((item) => item.id !== action.payload.id);
+    case 'REMOVE_ITEM': {
+      return {
+        ...state,
+        cart: state.cart.filter((item) => item.id !== action.payload.id),
+      };
     }
 
-    case "UPDATE_QUANTITY": {
-      return state.map((item) =>
-        item.id === action.payload.id
-          ? { ...item, quantity: action.payload.quantity }
-          : item,
-      );
+    case 'UPDATE_QUANTITY': {
+      return {
+        ...state,
+        cart: state.cart.map((item) =>
+          item.id === action.payload.id
+            ? { ...item, quantity: action.payload.quantity }
+            : item,
+        ),
+      };
     }
 
-    case "CLEAR_CART":
-      return [];
+    case 'CLEAR_CART':
+      return {
+        ...state,
+        cart: [],
+      };
 
     default:
       return state;
