@@ -1,0 +1,69 @@
+.card {
+  display: grid;
+  grid-template-columns: 100px 1fr 150px 120px 50px;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 1rem;
+  border-bottom: 1px solid #e5e5e5;
+  background: white;
+}
+
+.image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.price {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.controls button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: #f3f3f3;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.controls button:hover {
+  background: #ddd;
+}
+
+.total {
+  font-weight: bold;
+  text-align: right;
+}
+
+.remove {
+  border: none;
+  background: transparent;
+  color: red;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.remove:hover {
+  color: darkred;
+}
