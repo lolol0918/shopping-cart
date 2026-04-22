@@ -1,3 +1,4 @@
+// faked data used when testing the app
 const products = [
   {
     id: 1,
