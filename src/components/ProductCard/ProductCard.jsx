@@ -3,6 +3,7 @@ import { CartContext } from '../../context/CartContext.jsx';
 
 export default function ProductCard({ product }) {
   const { dispatch } = useContext(CartContext);
+  // set a local state that handles the quantity that is added to the cart
   const [qty, setQty] = useState(1);
 
   return (
