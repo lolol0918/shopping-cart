@@ -1,4 +1,4 @@
-async function getProducts() {
+export async function getProducts() {
   try {
     // Wait for the network request to complete
     const res = await fetch('https://fakestoreapi.com/products');
