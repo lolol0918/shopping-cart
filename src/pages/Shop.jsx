@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getProducts } from '../services/api.js';
+import styles from './Shop.module.css';
 import ProductCard from '../components/ProductCard/ProductCard.jsx';
 
 export default function Shop() {
@@ -26,11 +27,14 @@ export default function Shop() {
   if (error) return <p>{error}</p>;
 
   return (
-    <>
-      <h1>Shop</h1>
-      {products.map((product) => (
-        <ProductCard product={product} key={product.id}></ProductCard>
-      ))}
-    </>
+    <div className={styles.shopPage}>
+      <h1 className={styles.title}>Shop</h1>
+
+      <div className={styles.grid}>
+        {products.map((product) => (
+          <ProductCard product={product} key={product.id} />
+        ))}
+      </div>
+    </div>
   );
 }

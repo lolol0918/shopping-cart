@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import { CartContext } from '../../context/CartContext.jsx';
+import styles from './ProductCard.module.css';
 
 export default function ProductCard({ product }) {
   const { dispatch } = useContext(CartContext);
@@ -7,16 +8,21 @@ export default function ProductCard({ product }) {
   const [qty, setQty] = useState(1);
 
   return (
-    <div>
-      <img src={product.image} alt={product.name} />
-      <h2>{product.name}</h2>
-      <p>${product.price}</p>
-      <div>
+    <div className={styles.card}>
+      <img src={product.image} alt={product.name} className={styles.image} />
+
+      <h2 className={styles.name}>{product.name}</h2>
+
+      <p className={styles.price}>${product.price}</p>
+
+      <div className={styles.qtyControls}>
         <button onClick={() => setQty((q) => Math.max(1, q - 1))}>-</button>
         <span>{qty}</span>
         <button onClick={() => setQty((q) => q + 1)}>+</button>
       </div>
+
       <button
+        className={styles.addBtn}
         type="button"
         onClick={() => {
           dispatch({
