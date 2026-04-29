@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext.jsx';
+import { ShoppingCart } from 'lucide-react';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
@@ -10,17 +11,43 @@ export default function Navbar() {
       <h1 className={styles.title}>Shop</h1>
       <ul className={styles.list}>
         <li>
-          <Link to="/">Home</Link>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? styles.activeLink : styles.link
+            }
+          >
+            Home
+          </NavLink>
         </li>
+
         <li>
-          <Link to="shop">Shop</Link>
+          <NavLink
+            to="/shop"
+            className={({ isActive }) =>
+              isActive ? styles.activeLink : styles.link
+            }
+          >
+            Shop
+          </NavLink>
         </li>
+
         <li>
-          <Link to="cart">Cart</Link>
+          <NavLink
+            to="/cart"
+            className={({ isActive }) =>
+              isActive ? styles.activeLink : styles.link
+            }
+          >
+            Cart
+          </NavLink>
         </li>
       </ul>
-      <button type="button">
-        🛒 Cart ({state.cart.reduce((total, item) => total + item.quantity, 0)})
+      <button type="button" className={styles.cartButton}>
+        <ShoppingCart size={24} />
+        <span className={styles.badge}>
+          {state.cart.reduce((total, item) => total + item.quantity, 0)}
+        </span>
       </button>
     </nav>
   );

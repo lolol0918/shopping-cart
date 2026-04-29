@@ -1,5 +1,82 @@
-* {
-  padding: 0;
-  margin: 0;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+:root {
+  /* backgrounds */
+  --color-bg-app:             #0d0d0d;
+  --color-bg-surface:         #111111;
+  --color-bg-card:            #161616;
+  --color-bg-elevated:        #1e1e1e;
+  --color-bg-hover:           #1a1a1a;
+
+  /* accent — white */
+  --color-accent:             #ffffff;
+  --color-accent-dim:         #aaaaaa;
+  --color-accent-bg:          #1a1a1a;
+
+  /* text */
+  --color-text-primary:       #e8e8e8;
+  --color-text-secondary:     #888888;
+  --color-text-muted:         #555555;
+  --color-text-dim:           #333333;
+
+  /* borders */
+  --color-border:             #222222;
+  --color-border-subtle:      #1a1a1a;
+
+  /* badges */
+  --color-badge-new-bg:       #1a1a1a;
+  --color-badge-new-text:     #cccccc;
+  --color-badge-hot-bg:       #2a2a2a;
+  --color-badge-hot-text:     #ffffff;
+
+  /* fonts */
+  --font-display:             'Black Ops One', sans-serif;
+  --font-body:                'Inter', sans-serif;
+
+  /* type scale */
+  --font-size-xs:             10px;
+  --font-size-sm:             12px;
+  --font-size-base:           13px;
+  --font-size-md:             15px;
+  --font-size-lg:             18px;
+  --font-size-xl:             22px;
+  --font-size-hero:           36px;
+  --letter-spacing-eyebrow:   3px;
+
+  /* spacing */
+  --space-1: 4px;   --space-2: 8px;
+  --space-3: 12px;  --space-4: 16px;
+  --space-5: 20px;  --space-6: 24px;
+  --space-8: 32px;  --space-12: 48px;
+
+  /* layout */
+  --radius-sm:        4px;
+  --radius-md:        6px;
+  --radius-lg:        10px;
+  --radius-pill:      20px;
+  --nav-height:       56px;
+  --sidebar-width:    180px;
+  --cart-max-width:   700px;
+
+  /* borders shorthand */
+  --border-default:   0.5px solid var(--color-border);
+  --border-subtle:    0.5px solid var(--color-border-subtle);
+  --border-accent:    0.5px solid var(--color-accent-dim);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  color: #111;
+}
+
+button {
+  font-family: inherit;
 }
