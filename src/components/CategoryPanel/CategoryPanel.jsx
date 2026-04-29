@@ -1,5 +1,15 @@
 import styles from './CategoryPanel.module.css';
 
+function titleCase(st) {
+  return st
+    .toLowerCase()
+    .split(' ')
+    .reduce(
+      (s, c) => s + '' + (c.charAt(0).toUpperCase() + c.slice(1) + ' '),
+      '',
+    );
+}
+
 function CategoryPanel({ categories, selectedCategory, setSelectedCategory }) {
   return (
     <aside className={styles.panel}>
@@ -12,7 +22,7 @@ function CategoryPanel({ categories, selectedCategory, setSelectedCategory }) {
           }
           onClick={() => setSelectedCategory(category)}
         >
-          {category}
+          {titleCase(category)}
         </button>
       ))}
     </aside>

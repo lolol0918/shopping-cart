@@ -1,5 +1,8 @@
 /* Panel.module.css */
 .panel {
+  position: sticky;
+  top: 2em; /* distance from top of viewport */
+  align-self: start; /* important for CSS grid layouts */
   min-height: 100vh;
   width: var(--sidebar-width);
   background: var(--color-bg-surface);
