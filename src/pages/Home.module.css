@@ -1,0 +1,261 @@
+.page {
+  background: var(--color-bg-app);
+  min-height: 100vh;
+}
+
+/* HERO */
+.hero {
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  padding: var(--space-12) var(--space-8);
+  border-bottom: var(--border-default);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 60% 50%, #1a1a1a 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+}
+
+.heroEyebrow {
+  font-size: var(--font-size-xs);
+  letter-spacing: var(--letter-spacing-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: var(--font-size-hero);
+  line-height: 1.1;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.heroAccent {
+  color: var(--color-accent);
+}
+
+.heroSub {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-8);
+  max-width: 400px;
+}
+
+.heroBtns {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.btnPrimary {
+  background: var(--color-accent);
+  color: var(--color-bg-app);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.btnPrimary:hover {
+  opacity: 0.85;
+}
+
+.btnOutline {
+  background: transparent;
+  color: var(--color-text-secondary);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  border: var(--border-default);
+  font-size: var(--font-size-base);
+  text-decoration: none;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.btnOutline:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-accent-dim);
+}
+
+/* SECTIONS */
+.section {
+  padding: var(--space-8);
+  border-bottom: var(--border-default);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+}
+
+.eyebrow {
+  font-size: var(--font-size-xs);
+  letter-spacing: var(--letter-spacing-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.seeAll {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.seeAll:hover {
+  color: var(--color-accent);
+}
+
+/* FEATURED PRODUCTS */
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.productCard {
+  background: var(--color-bg-card);
+  border: var(--border-default);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color 0.2s;
+  animation: slideUp 0.4s ease both;
+}
+
+.productCard:hover {
+  border-color: var(--color-accent-dim);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.productImgWrap {
+  background: var(--color-bg-elevated);
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+}
+
+.productImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.productInfo {
+  padding: var(--space-4);
+}
+
+.productCategory {
+  font-size: var(--font-size-xs);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  margin-bottom: var(--space-1);
+}
+
+.productName {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  font-weight: 500;
+  margin-bottom: var(--space-2);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.productPrice {
+  font-size: var(--font-size-md);
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* CATEGORIES */
+.catGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+}
+
+.catCard {
+  background: var(--color-bg-card);
+  border: var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-4);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.catCard:hover {
+  border-color: var(--color-accent-dim);
+  background: var(--color-bg-elevated);
+}
+
+.catLabel {
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.catArrow {
+  color: var(--color-text-dim);
+  font-size: var(--font-size-md);
+  transition: color 0.2s, transform 0.2s;
+}
+
+.catCard:hover .catArrow {
+  color: var(--color-accent);
+  transform: translateX(4px);
+}
+
+/* SKELETONS */
+.skeletonGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.skeleton {
+  height: 280px;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-card);
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-card) 25%,
+    var(--color-bg-elevated) 50%,
+    var(--color-bg-card) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  from { background-position: 200% 0; }
+  to   { background-position: -200% 0; }
+}

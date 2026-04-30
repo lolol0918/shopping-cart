@@ -39,18 +39,16 @@ export default function Shop() {
 
   return (
     <div className={styles.shopLayout}>
-      {' '}
       <CategoryPanel
         categories={categories}
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
-      />{' '}
+      />
       <div className={styles.grid}>
-        {' '}
         {(filteredProducts || []).map((product, index) => (
           <ProductCard key={product.id} product={product} index={index} />
-        ))}{' '}
-      </div>{' '}
+        ))}
+      </div>
     </div>
   );
 }
