@@ -8,7 +8,7 @@ export default function Navbar() {
   const { state } = useContext(CartContext);
   return (
     <nav className={styles.nav}>
-      <h1 className={styles.title}>Shop</h1>
+      <h1 className={styles.title}>VANTA</h1>
       <ul className={styles.list}>
         <li>
           <NavLink

@@ -33,8 +33,30 @@ export default function Shop() {
     selectedCategory === 'all'
       ? products
       : products.filter((product) => product.category === selectedCategory);
+  // better loading screen
+  if (loading)
+    return (
+      <div className={styles.shopLayout}>
+        <aside className={styles.panel} />
+        <div className={styles.grid}>
+          {[...Array(8)].map((_, i) => (
+            <div
+              key={i}
+              className={styles.skeletonCard}
+              style={{ animationDelay: `${i * 0.05}s` }}
+            >
+              <div className={styles.skeletonImg} />
+              <div className={styles.skeletonInfo}>
+                <div className={styles.skeletonLine} style={{ width: '40%' }} />
+                <div className={styles.skeletonLine} style={{ width: '80%' }} />
+                <div className={styles.skeletonLine} style={{ width: '30%' }} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
 
-  if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
   return (
