@@ -7,11 +7,11 @@ import styles from './Cart.module.css';
 export default function Cart() {
   const navigate = useNavigate();
   const { state, dispatch } = useContext(CartContext);
-  const cartTotal = useMemo(() => {
-    return state.cart.reduce((total, item) => {
-      return total + item.price * item.quantity;
-    }, 0);
-  }, [state]);
+  const cartTotal = useMemo(
+    () =>
+      state.cart.reduce((total, item) => total + item.price * item.quantity, 0),
+    [state.cart],
+  );
 
   if (state.cart.length === 0) {
     return (
