@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { CartContext } from '../context/CartContext.jsx';
 import CartItem from '../components/CartItem/CartItem.jsx';
@@ -7,9 +7,11 @@ import styles from './Cart.module.css';
 export default function Cart() {
   const navigate = useNavigate();
   const { state, dispatch } = useContext(CartContext);
-  const cartTotal = state.cart.reduce((total, item) => {
-    return total + item.price * item.quantity;
-  }, 0);
+  const cartTotal = useMemo(() => {
+    return state.cart.reduce((total, item) => {
+      return total + item.price * item.quantity;
+    }, 0);
+  }, [state]);
 
   if (state.cart.length === 0) {
     return (
